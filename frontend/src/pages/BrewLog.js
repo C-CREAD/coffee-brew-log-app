@@ -89,42 +89,39 @@ export default function BrewLog() {
             {Array.isArray(filteredBrews) && filteredBrews.map(brew => (
                 <>
                     <div className={"row mb-3"}>
-                        <div className={"d-block d-md-none"}>
-                            <div className={"col-md-2"}>
-                                <strong>Rating:</strong> <small className={"text-muted"}>{brew.rating}/5</small>
-                            </div>
-                            <div className={"col-md-7"}>
-                                <div className={"row"}>
-                                    <div className={"col-12"}>
-                                        <h4 className={"mb-1"}>{brew.bean_name}</h4>
-                                    </div>
-                                </div>
-                                <div className={"row g-2 mb-3"}>
-                                    <div className={"col-4 text-center"}>
-                                        <div className={"border border-dark rounded p-1"}>
-                                            <p className={"mb-0"}>{filterMethods[brew.method] || brew.method}</p>
-                                        </div>
-
-                                    </div>
-                                    <div className={"col-4 text-center"}>
-                                        <div className={"border border-dark rounded p-1"}>
-                                            <p className={"mb-0"}>🫘 {brew.coffee_grams}g</p>
-                                        </div>
-
-                                    </div>
-                                    <div className={"col-4 text-center"}>
-                                        <div className={"border border-dark rounded p-1"}>
-                                            <p className={"mb-0"}>💧 {brew.water_grams}g</p>
-                                        </div>
-
-                                    </div>
+                        <div className={"col-md-2"}>
+                            <strong>Rating:</strong> <small className={"text-muted"}>{brew.rating}/5</small>
+                        </div>
+                        <div className={"col-md-7"}>
+                            <div className={"row"}>
+                                <div className={"col-12"}>
+                                    <h4 className={"mb-1"}>{brew.bean_name}</h4>
                                 </div>
                             </div>
-                            <div className={"col-md-3 text-end"}>
-                                <Link to={`/brews/${brew.id}/edit`} className={"btn btn-secondary"}>Edit</Link>
+                            <div className={"row g-2 mb-3"}>
+                                <div className={"col-4 text-center"}>
+                                    <div className={"border border-dark rounded p-1"}>
+                                        <p className={"mb-0"}>{filterMethods[brew.method] || brew.method}</p>
+                                    </div>
+
+                                </div>
+                                <div className={"col-4 text-center"}>
+                                    <div className={"border border-dark rounded p-1"}>
+                                        <p className={"mb-0"}>🫘 {brew.coffee_grams}g</p>
+                                    </div>
+
+                                </div>
+                                <div className={"col-4 text-center"}>
+                                    <div className={"border border-dark rounded p-1"}>
+                                        <p className={"mb-0"}>💧 {brew.water_grams}g</p>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-
+                        <div className={"col-md-3 text-end"}>
+                            <Link to={`/brews/${brew.id}/edit`} className={"btn btn-secondary"}>Edit</Link>
+                        </div>
                     </div>
                     <hr/>
                 </>
@@ -157,4 +154,5 @@ export default function BrewLog() {
             )}
         </div>
     );
+
 }
