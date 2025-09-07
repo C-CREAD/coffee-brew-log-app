@@ -92,12 +92,12 @@ export default function EditBrew() {
 
                     <div className={"mb-3"}>
                         <div className={"row"}>
-                            <div className={"col-6"}>
+                            <div className={"col-auto"}>
                                 <label>Coffee grams</label><br/>
                                 <input type="number" name="coffee_grams" value={formData.coffee_grams} onChange={handleChange} required/>
                                 <br/>
                             </div>
-                            <div className={"col-6"}>
+                            <div className={"col-auto"}>
                                 <label>Water grams</label><br/>
                                 <input type="number" name="water_grams" value={formData.water_grams} onChange={handleChange} required/>
                                 <br/>
@@ -130,4 +130,5 @@ export default function EditBrew() {
             </form>
         </div>
     )
+
 }
