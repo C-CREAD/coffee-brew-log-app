@@ -1,6 +1,7 @@
 # Coffee Brew Log App
-This is a full-stack application project for managing your coffee brews. For more information on how to install this repository locally, refer to the [Installation](##Installation) section. 
-To see information on deployment, refer to the [Deployment details](deployment.md).
+This is a full-stack application project for managing your coffee brews. 
+To see information on deployment, [click here](deployment.md).
+
 ## Tech Stack 
 - Frontend: React & Bootstrap CSS
 - Backend: Python and Django
