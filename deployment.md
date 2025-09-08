@@ -1,82 +1,51 @@
-# Coffee Brew Log App
-This is a full-stack application project for managing your coffee brews. Check out the deployed version of this application [here](https://coffee-brew-log-app-1.onrender.com/). 
-For more information on how to install this repository locally, refer to the [Installation](Installation) section
+# Deployment Guide 
+This full-stack application project was deployed on Render. This guide will provide notes on how to deploy this application. You can check out the deployed version of this application [here](https://coffee-brew-log-app-1.onrender.com/). 
 
-## Tech Stack 
-- Frontend: React & Bootstrap CSS
-- Backend: Python and Django
-- Database: SQLite3 (with Django built-in ORM)
-- Deployed: [Render](https://coffee-brew-log-app-1.onrender.com/)
 
-## Features
-1. Create, Read, Update, and Delete operations for managing coffee brews
-2. Responsive user interface
-3. Filter coffee brews by methods
+## Backend (Django API + SQLite3) 
+NOTE: Since this setup is for demo purposes only, we are using Django's built-in ORM via SQLite3, so we don't need any additional configuration for the database like you would for PostgreSQL. 
 
-## Installation
-1. Clone the repository
-```sh
-git clone https://github.com/C-CREAD/coffee-brew-log-app.git
-cd coffee-brew-log-app
-```
+### Setup
+1. Go to Render → **New + > Web Service**.
+2. Connect your GitHub repo.
+3. Set the environment variables:
+   - `DJANGO_SECRET_KEY` = (set a secure random string)
+   - `DEBUG` = False
+4. Build command:
+   ```bash
+   pip install -r requirements.txt && python manage.py migrate
+   ```
+5. Set the root directory to the 'backend' folder:
+   ```
+   ./backend
+   ``` 
+6. Start command:
+   ```bash
+   gunicorn backend.wsgi
+   ```
+8. Save and deploy
 
-2. Backend Setup (Python and Django)
-   - Create a virtual environment, then install all dependencies:
-     
-     ```sh
-     cd backend
-     ```
-     ```sh
-     python -m venv venv
-     ```
-     ```sh
-     source venv/bin/activate
-     ```
-     ```sh
-     pip install -r requirements.txt
-     ```
-  
-   - Create a .env file in the backend directory, then put the following information:
-     
-     ```sh
-     DJANGO_SECRET_KEY='Your Secret Key'
-     DEBUG=True
-     DATABASE_URL=sqlite:///db.sqlite3
-     ```
-  
-   - Apply all migrations:
-     
-     ```sh
-     python manage.py migrate 
-     ```
-     
-   - Run the backend server:
-     
-     ```sh
-     python manage.py runserver 
-     ```
-     The backend server should be available at: http://localhost:8000/api/brews/
 
-3. Frontend Setup (React)
-   - Install all dependencies:
-     
-     ```sh
-     cd ../frontend
-     ```
-     ```sh
-     npm install
-     ```
-   - Create a .env file in the frontend directory, then put the following information:
-     
-     ```sh
-     REACT_APP_API_URL=http://localhost:8000/api
-     ```
-   - Run the frontend server:
-     
-     ```sh
-     npm start
-     ```
-     The frontend server should be available at: http://localhost:3000/
+## Frontend (React)
+1. Go to Render → New + > Static Site.
+2. Connect your GitHub repo.
+3. Set the root directory to the 'frontend' folder:
+   ```
+   ./frontend
+   ```
+4. Build command:
+   ```
+   npm install && npm run build
+   ```
+5. Set the publish directory to:
+   ```
+   build
+   ```
+6. Set the environment variable to the backend URL you deployed:
+   ```
+   REACT_APP_API_URL=https://coffee-brew-log-app.onrender.com/api/brews/
+   ```
+7. Save and deploy.
 
 
 
